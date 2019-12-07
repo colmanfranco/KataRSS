@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/rss-source', 'RSSSourceController@store');
+Route::get('/rss-source', 'RSSSourceController@index');
+Route::delete('/rss-source/{rss_source}', 'RSSSourceController@destroy');
